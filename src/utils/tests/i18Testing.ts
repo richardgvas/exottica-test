@@ -1,5 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import spanishLiterals from "../../translations/es.json";
+import englishLiterals from "../../translations/en.json";
 
 i18n.use(initReactI18next).init({
   lng: "en",
@@ -15,7 +17,14 @@ i18n.use(initReactI18next).init({
     escapeValue: false, // not needed for react!!
   },
 
-  resources: { en: { translationsNS: {} } },
+  resources: {
+    es: {
+      translation: spanishLiterals,
+    },
+    en: {
+      translation: englishLiterals,
+    },
+  },
 });
 
 export default i18n;

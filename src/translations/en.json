@@ -10,13 +10,15 @@
   },
   "mainSection": {},
   "landingList": {
-    "title": "Lista de Landings",
+    "title": "Landing List",
     "table": {
-      "landingAlias": "Alias de la Landing",
-      "landingName": "Nombre de la Landing",
+      "landingAlias": "Landing Alias",
+      "landingName": "Landing Name",
       "status": "Status",
-      "market": "Mercado",
-      "actions": "Acciones"
+      "market": "Market",
+      "actions": "Actions",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   }
 }
