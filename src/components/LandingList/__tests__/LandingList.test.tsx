@@ -70,10 +70,5 @@ describe("when it renders", () => {
         expect(screen.getByText("Status")).toBeInTheDocument();
       });
     });
-    test("The table has rows in it", async () => {
-      await waitFor(() => {
-        // expect(screen.get("rowgroup")[1].children).toHaveLength(3);
-      });
-    });
   });
 });

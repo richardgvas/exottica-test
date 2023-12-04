@@ -1,21 +1,34 @@
 import { useQuery } from "@tanstack/react-query";
 import { Chip } from "@mui/material";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useTranslation } from "react-i18next";
 import TableData, { DataTablePropsType } from "../ui/TableData";
 import { getLandings } from "../../services/LandingService";
 import isPrimeNumber from "../../utils/numbers/primeNumbers";
+import Actions from "../ui/Actions";
+import { useEffect, useState } from "react";
 
 const LandingList = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "landingList",
+  });
+  const [selectedLanding, setSelectedLanding] = useState({
+    id: null,
+    action: null,
   });
   const { isLoading, data } = useQuery({
     queryKey: ["landings"],
     queryFn: getLandings,
   });
 
+  useEffect(() => {
+    console.log(
+      "🚀 ~ file: LandingList.tsx:25 ~ useEffect ~ selectedLanding:",
+      selectedLanding
+    );
+    if (selectedLanding.action) {
+      alert("a landing has been selected");
+    }
+  }, [selectedLanding]);
   const columns: DataTablePropsType["columns"] = [
     {
       field: "landingName",
@@ -82,12 +95,7 @@ const LandingList = () => {
       field: "actions",
       headerName: t("table.actions"),
       disableColumnMenu: true,
-      renderCell: () => (
-        <div className="flex flex-row gap-2">
-          <EditNoteIcon className="cursor-pointer" fontSize="small" />
-          <VisibilityIcon className="cursor-pointer" fontSize="small" />
-        </div>
-      ),
+      renderCell: (params) => <Actions callBack={setSelectedLanding} />,
       cellClassName: "!outline-0",
     },
   ];
