@@ -8,24 +8,26 @@ import {
 } from "@mui/material";
 import tw from "twin.macro";
 import styled from "@emotion/styled";
+import { useTranslation } from "react-i18next";
 
 const SideBar = () => {
+  const { t } = useTranslation("translation", { keyPrefix: "sidebar.items" });
   const listItems = [
     {
       listIcon: <RoomService className="text-gray-400 !w-[15px]" />,
-      listText: "Services",
+      listText: t("services"),
     },
     {
       listIcon: <Group className="text-gray-400 !w-[15px]" />,
-      listText: "Groups",
+      listText: t("groups"),
     },
     {
       listIcon: <Hotel className="text-gray-400 !w-[15px]" />,
-      listText: "Hotels",
+      listText: t("hotels"),
     },
     {
       listIcon: <Storefront className="text-gray-400 !w-[15px]" />,
-      listText: "Store",
+      listText: t("store"),
     },
   ];
   return (
@@ -36,7 +38,7 @@ const SideBar = () => {
         </Typography>
       </div>
       <List>
-        <Avatar src="https://i.ibb.co/rx5DFbs/avatar.png" />
+        <Avatar src="https://cdn-icons-png.flaticon.com/512/224/224597.png" />
         <Divider />
         <List data-testid="sidebar-items">
           {listItems.map((listItem, index) => (
@@ -61,7 +63,6 @@ const SideBar = () => {
 export default SideBar;
 
 const SideBarContainer = styled.div`
-  width: 250px;
   ${tw`bg-slate-900 text-gray-400 min-h-full`}
 `;
 
