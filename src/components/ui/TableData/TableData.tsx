@@ -16,7 +16,7 @@ const DataTable = ({
   pageSize = 10,
 }: DataTablePropsType) => {
   return (
-    <TableWrapper data-testid="data-table">
+    <TableWrapper data-testid="data-table" className="self-start p-4 pb-0">
       <DataGrid
         rows={rows}
         loading={loading}
@@ -26,8 +26,9 @@ const DataTable = ({
             paginationModel: { page: 0, pageSize: pageSize },
           },
         }}
-        className="!text-gray-400 bg-slate-900 border-none !text-xs"
+        className="!text-gray-200 bg-slate-900 border-none !text-xs"
         disableColumnFilter
+        disableRowSelectionOnClick
       />
     </TableWrapper>
   );
@@ -39,6 +40,9 @@ const TableWrapper = styled.div`
   [class*="MuiDataGrid-withBorderColor"],
   .MuiDataGrid-withBorderColor {
     ${tw`!border-none`}
+    * {
+      ${tw`!outline-0`}
+    }
   }
   [class*="-MuiDataGrid-columnHeaders"] {
     ${tw`bg-slate-800`}

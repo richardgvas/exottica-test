@@ -46,7 +46,7 @@ const SideBar = () => {
               key={`items-${index}`}
               className="flex text-left items-center pb-3 cursor-pointer"
             >
-              <ListItemIcon className="!min-w-fit pr-3">
+              <ListItemIcon className="!min-w-fit px-3">
                 {listItem.listIcon}
               </ListItemIcon>
               <ListItemText className="pt-[1px]">

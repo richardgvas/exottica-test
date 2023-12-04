@@ -14,7 +14,9 @@
       "landingName": "Nombre de la Landing",
       "status": "Status",
       "market": "Mercado",
-      "actions": "Acciones"
+      "actions": "Acciones",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   }
 }
