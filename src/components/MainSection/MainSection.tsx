@@ -1,5 +1,11 @@
-const MainSection = () => (
-  <div data-testid="main-section" className="flex-1 min-w-full h-full"></div>
-);
+import LandingList from "../LandingList";
+
+const MainSection = () => {
+  return (
+    <div data-testid="main-section" className="grow bg-black">
+      <LandingList />
+    </div>
+  );
+};
 
 export default MainSection;

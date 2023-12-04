@@ -1,14 +1,17 @@
 import { RenderResult, render } from "@testing-library/react";
+import { renderWithClient } from "./utils/tests/renderWithClient";
+import { QueryClient } from "@tanstack/react-query";
 import App from "./App";
 
 describe("when it renders", () => {
+  const queryClient = new QueryClient();
   let AppComponent: RenderResult<
     typeof import("@testing-library/dom/types/queries"),
     HTMLElement,
     HTMLElement
   >;
   beforeEach(() => {
-    AppComponent = render(<App />);
+    AppComponent = renderWithClient(queryClient, <App />);
   });
   test("there is a sidebar in the document", () => {
     const { getByText } = AppComponent;

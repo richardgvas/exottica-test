@@ -1,0 +1,20 @@
+{
+  "sidebar": {
+    "items": {
+      "hotels": "Hoteles",
+      "services": "Servicios",
+      "groups": "Grupos",
+      "store": "Tiendas"
+    },
+    "title": "Exoticca"
+  },
+  "mainSection": {
+    "tableColumns": {
+      "landingAlias": "Alias de la Landing",
+      "landingName": "Nombre de la Landing",
+      "status": "Status",
+      "market": "Mercado",
+      "actions": "Acciones"
+    }
+  }
+}
