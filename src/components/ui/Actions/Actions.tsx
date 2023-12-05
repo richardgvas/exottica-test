@@ -2,13 +2,13 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
 type ActionsType = {
-  callBack: (params: any) => void;
+  callBack: ({ action }: { action?: "edit" | "view" }) => void;
   size?: "small" | "medium" | "large" | "inherit";
   className?: string;
 };
 
 const Actions = ({ size = "small", className, callBack }: ActionsType) => {
-  const onClick = (actionType: "edit" | "view") => {
+  const onClick = (actionType: "edit" | "view" | undefined) => {
     callBack({
       action: actionType,
     });
