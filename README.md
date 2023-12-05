@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# Exoticca Test - Table Landing
+![Exoticca-Test](https://github.com/richardgvas/exottica-test/assets/5080652/c3b751e8-836e-4050-bb1f-c955caccdfc7)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Exotica
+## [Ricardo Granda](https://www.ricardograndavasquez.com) 
 
-Currently, two official plugins are available:
+<table>
+<tr>
+<td>
+  A small landing web app based on a mocked API for displaying a table. 
+</td>
+</tr>
+</table>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
+Here is a working live demo :  https://develop.d1e42z05ffekfb.amplifyapp.com/
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Development
 
-- Configure the top-level `parserOptions` property like this:
+Want to check it in your local? 
+- For the app by cloning this repo. 
+- For running into dev mode (`npm run dev`)
+- For making the build (`npm run build`)
+- For running the tests (`npm run test`)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Want to contribute? Great!
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To fix a bug or enhance an existing module, follow these steps:
+
+- Fork the repo
+- Create a new branch (`git checkout -b improve-feature`)
+- Make the appropriate changes in the files
+- Add changes to reflect the changes made
+- Commit your changes (`git commit -am 'Improve feature'`)
+- Push to the branch (`git push origin improve-feature`)
+- Create a Pull Request 
+
+
+## Built with 
+
+- [React](https://react.dev/learn): One of the most popular libraries for developing UI, based in Javascript.  
+- [React-Query](https://tanstack.com/query/v3/): Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte. 
+- [Tailwind-css](https://tailwindcss.com/): A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup. 
+- [Material UI - MUI ](https://mui.com/) MUI offers a comprehensive suite of free UI tools to help you ship new features faster. Start with Material UI.
+- [Vite](https://vitejs.dev/) Next Generation Frontend Tooling, replacing the deprecated create-react-app.
+
