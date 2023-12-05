@@ -42,6 +42,6 @@ To fix a bug or enhance an existing module, follow these steps:
 - [React](https://react.dev/learn): One of the most popular libraries for developing UI, based in Javascript.  
 - [React-Query](https://tanstack.com/query/v3/): Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte. 
 - [Tailwind-css](https://tailwindcss.com/): A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup. 
-- [Material UI - MUI ](https://mui.com/) MUI offers a comprehensive suite of free UI tools to help you ship new features faster. Start with Material UI.
+- [Material UI - MUI ](https://mui.com/) MUI offers a comprehensive suite of free UI tools to help you ship new features faster.
 - [Vite](https://vitejs.dev/) Next Generation Frontend Tooling, replacing the deprecated create-react-app.
 
