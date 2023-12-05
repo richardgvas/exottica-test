@@ -1,9 +1,4 @@
-import {
-  RenderResult,
-  getByDisplayValue,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { RenderResult, waitFor } from "@testing-library/react";
 import { QueryClient } from "@tanstack/react-query";
 import MainSection from "..";
 import { renderWithClient } from "../../../utils/tests/renderWithClient";

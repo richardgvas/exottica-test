@@ -19,6 +19,9 @@
       "actions": "Actions",
       "active": "Active",
       "inactive": "Inactive"
+    },
+    "landingFilter": {
+      "label": "Search by name"
     }
   }
 }

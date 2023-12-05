@@ -1,11 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
 import { Chip } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
 import TableData, { DataTablePropsType } from "../ui/TableData";
-import { getLandings } from "../../services/LandingService";
 import isPrimeNumber from "../../utils/numbers/primeNumbers";
 import Actions from "../ui/Actions";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import LandingsFilter from "./LandingsFilter";
+import { getLandings } from "../../services/LandingService";
+
+type LandingType = {
+  landingAlias: string;
+  landingName: string;
+  status: boolean;
+  [key: string]: any;
+};
 
 const LandingList = () => {
   const { t } = useTranslation("translation", {
@@ -15,20 +23,38 @@ const LandingList = () => {
     id: null,
     action: null,
   });
-  const { isLoading, data } = useQuery({
+  const [filter, setFilter] = useState<string>("");
+  const filterLandingsBySearch = useCallback(
+    (landings: Array<LandingType>) => {
+      if (!filter) return landings;
+      return landings.filter((landing) =>
+        landing?.landingName.includes(filter.toLowerCase())
+      );
+    },
+    [filter]
+  );
+
+  const {
+    data: landings = [],
+    isLoading,
+    isFetching,
+    error,
+  } = useQuery({
     queryKey: ["landings"],
     queryFn: getLandings,
+    refetchOnWindowFocus: false,
+    retry: 2,
+    select: filterLandingsBySearch,
   });
 
   useEffect(() => {
-    console.log(
-      "🚀 ~ file: LandingList.tsx:25 ~ useEffect ~ selectedLanding:",
-      selectedLanding
-    );
     if (selectedLanding.action) {
-      alert("a landing has been selected");
+      alert(
+        `a landing has been selected ${selectedLanding.action} ${selectedLanding.id}`
+      );
     }
   }, [selectedLanding]);
+
   const columns: DataTablePropsType["columns"] = [
     {
       field: "landingName",
@@ -95,17 +121,24 @@ const LandingList = () => {
       field: "actions",
       headerName: t("table.actions"),
       disableColumnMenu: true,
-      renderCell: (params) => <Actions callBack={setSelectedLanding} />,
+      renderCell: (params) => (
+        <Actions
+          callBack={({ action }) =>
+            setSelectedLanding({ id: params.row.id, action })
+          }
+        />
+      ),
       cellClassName: "!outline-0",
     },
   ];
   return (
-    <div className="flex flex-col grow gap-3 min-w-full justify-center ml-8 p-4 items-center">
+    <div className="flex flex-col grow gap-3 min-w-full justify-center p-4 items-center">
       <h2 data-testid="landing-title" className="text-left self-start pl-4">
         {t("title")}
       </h2>
-      {(isLoading && "is loading ...") || (
-        <TableData rows={data || []} columns={columns} />
+      <LandingsFilter filter={filter} setFilter={setFilter} />
+      {(error && "is an error...") || (isLoading && "is loading ...") || (
+        <TableData rows={landings} columns={columns} loading={isFetching} />
       )}
     </div>
   );

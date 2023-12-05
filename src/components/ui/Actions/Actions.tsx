@@ -10,7 +10,6 @@ type ActionsType = {
 const Actions = ({ size = "small", className, callBack }: ActionsType) => {
   const onClick = (actionType: "edit" | "view") => {
     callBack({
-      id: "id",
       action: actionType,
     });
   };

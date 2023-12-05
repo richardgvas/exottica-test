@@ -8,15 +8,20 @@
     },
     "title": "Exoticca"
   },
-  "mainSection": {
-    "tableColumns": {
-      "landingAlias": "Alias de la Landing",
-      "landingName": "Nombre de la Landing",
+  "mainSection": {},
+  "landingList": {
+    "title": "Listado de Landings",
+    "table": {
+      "landingAlias": "Alias de la landing",
+      "landingName": "Nombre de la landing",
       "status": "Status",
       "market": "Mercado",
       "actions": "Acciones",
-      "active": "Active",
-      "inactive": "Inactive"
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "landingFilter": {
+      "label": "Busca por nombre"
     }
   }
 }
