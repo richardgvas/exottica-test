@@ -7,7 +7,7 @@ import { I18nextProvider } from "react-i18next";
 import spanishLiterals from "./translations/es.json";
 import englishLiterals from "./translations/en.json";
 import App from "./App.tsx";
-import "./App.css";
+import "./index.css";
 
 i18next.use(LanguageDetector).init({
   interpolation: {
