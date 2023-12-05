@@ -1,10 +1,10 @@
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import styled from "@emotion/styled";
 import tw from "twin.macro";
 
 export type DataTablePropsType = {
   columns: GridColDef[];
-  rows: [];
+  rows: any[];
   loading?: boolean;
   pageSize?: number;
 };
@@ -16,18 +16,23 @@ const DataTable = ({
   pageSize = 10,
 }: DataTablePropsType) => {
   return (
-    <TableWrapper data-testid="data-table" className="self-start p-4 pb-0">
+    <TableWrapper
+      data-testid="data-table"
+      className="self-start p-4 pb-0 w-full"
+    >
       <DataGrid
         rows={rows}
         loading={loading}
         columns={columns}
+        filterMode="server"
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: pageSize },
           },
         }}
-        className="!text-gray-200 bg-slate-900 border-none !text-xs"
-        disableColumnFilter
+        className={`!text-gray-200 bg-slate-900 border-none !text-xs ${
+          !rows.length && "no-data"
+        }`}
         disableRowSelectionOnClick
       />
     </TableWrapper>
@@ -52,5 +57,11 @@ const TableWrapper = styled.div`
   }
   [class*="MuiDataGrid-iconSeparator"] {
     ${tw`!text-transparent`}
+  }
+  .no-data {
+    .MuiDataGrid-virtualScroller {
+      overflow: visible;
+      min-height: 200px;
+    }
   }
 `;

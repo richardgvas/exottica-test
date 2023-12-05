@@ -11,34 +11,38 @@ import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
 
 const SideBar = () => {
-  const { t } = useTranslation("translation", { keyPrefix: "sidebar.items" });
+  const { t } = useTranslation("translation", { keyPrefix: "sidebar" });
   const listItems = [
     {
       listIcon: <RoomService className="text-gray-400 !w-[15px]" />,
-      listText: t("services"),
+      listText: t("items.services"),
     },
     {
       listIcon: <Group className="text-gray-400 !w-[15px]" />,
-      listText: t("groups"),
+      listText: t("items.groups"),
     },
     {
       listIcon: <Hotel className="text-gray-400 !w-[15px]" />,
-      listText: t("hotels"),
+      listText: t("items.hotels"),
     },
     {
       listIcon: <Storefront className="text-gray-400 !w-[15px]" />,
-      listText: t("store"),
+      listText: t("items.store"),
     },
   ];
   return (
     <SideBarContainer className="bg-slate-900 p-4">
       <div className="p-4">
-        <Typography variant="h6" color="blue-gray" className="text-gray-400">
-          Exoticca
+        <Typography
+          variant="h6"
+          color="blue-gray"
+          className="text-gray-400 uppercase"
+        >
+          {t("title")}
         </Typography>
       </div>
       <List>
-        <Avatar src="https://cdn-icons-png.flaticon.com/512/224/224597.png" />
+        <Avatar src="https://machupicchutravelguide.com/wp-content/uploads/2020/04/Machu-Picchu.png" />
         <Divider />
         <List data-testid="sidebar-items">
           {listItems.map((listItem, index) => (
@@ -49,7 +53,7 @@ const SideBar = () => {
               <ListItemIcon className="!min-w-fit px-3">
                 {listItem.listIcon}
               </ListItemIcon>
-              <ListItemText className="pt-[1px]">
+              <ListItemText className="pt-[1px] px-3">
                 {listItem.listText}
               </ListItemText>
             </ListItem>

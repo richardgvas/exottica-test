@@ -22,7 +22,7 @@ describe("when it renders", () => {
   const useQueryMocked = useQuery.mockReturnValue({
     data: MockData,
     isLoading: false,
-    error: {},
+    error: false,
   });
   let LandingListComponent: RenderResult<
     typeof import("@testing-library/dom/types/queries"),
