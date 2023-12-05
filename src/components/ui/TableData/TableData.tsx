@@ -1,10 +1,10 @@
-import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import styled from "@emotion/styled";
 import tw from "twin.macro";
 
 export type DataTablePropsType = {
   columns: GridColDef[];
-  rows: any[];
+  rows: GridRowsProp;
   loading?: boolean;
   pageSize?: number;
 };

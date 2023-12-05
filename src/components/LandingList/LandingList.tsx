@@ -1,5 +1,6 @@
 import { Chip } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { GridValidRowModel } from "@mui/x-data-grid";
 import { useQuery } from "@tanstack/react-query";
 import TableData, { DataTablePropsType } from "../ui/TableData";
 import isPrimeNumber from "../../utils/numbers/primeNumbers";
@@ -8,27 +9,19 @@ import { useCallback, useEffect, useState } from "react";
 import LandingsFilter from "./LandingsFilter";
 import { getLandings } from "../../services/LandingService";
 
-type LandingType = {
-  landingAlias: string;
-  landingName: string;
-  status: boolean;
-  [key: string]: any;
-};
-
 const LandingList = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "landingList",
   });
-  const [selectedLanding, setSelectedLanding] = useState({
-    id: null,
-    action: null,
-  });
+  const [selectedLanding, setSelectedLanding] = useState<
+    { id: number; action?: "edit" | "view" } | undefined
+  >();
   const [filter, setFilter] = useState<string>("");
   const filterLandingsBySearch = useCallback(
-    (landings: Array<LandingType>) => {
+    (landings: readonly GridValidRowModel[]) => {
       if (!filter) return landings;
       return landings.filter((landing) =>
-        landing?.landingName.includes(filter.toLowerCase())
+        landing?.landingName.toLowerCase().includes(filter.toLowerCase())
       );
     },
     [filter]
@@ -48,9 +41,9 @@ const LandingList = () => {
   });
 
   useEffect(() => {
-    if (selectedLanding.action) {
+    if (selectedLanding?.action) {
       alert(
-        `a landing has been selected ${selectedLanding.action} ${selectedLanding.id}`
+        `a landing has been selected ${selectedLanding?.action} ${selectedLanding?.id}`
       );
     }
   }, [selectedLanding]);

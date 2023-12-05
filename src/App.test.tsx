@@ -1,4 +1,4 @@
-import { RenderResult, render } from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 import { renderWithClient } from "./utils/tests/renderWithClient";
 import { QueryClient } from "@tanstack/react-query";
 import App from "./App";
